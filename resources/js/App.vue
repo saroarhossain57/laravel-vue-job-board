@@ -1,10 +1,13 @@
 <template>
+    <Header />
     <router-view />
 </template>
 <script>
+  import Header from './Components/TemplateParts/Header.vue';
   export default {
-    setup() {
-  
+    
+    components: {
+      Header
     }
   }
 </script>
