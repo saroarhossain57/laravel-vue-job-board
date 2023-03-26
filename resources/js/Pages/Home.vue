@@ -1,12 +1,14 @@
 <template>
-    
+    <div class="container mx-auto my-16">
+        <JobsList />
+    </div>
 </template>
   
 <script>
-    import Header from '../Components/TemplateParts/Header.vue'
+    import JobsList from '../Components/JobBoard/JobsList.vue';
     export default {
         components: {
-            'Header': Header,
+            'JobsList': JobsList,
         }
     }
 </script>

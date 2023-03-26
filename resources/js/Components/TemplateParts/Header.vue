@@ -1,6 +1,6 @@
 <template>
-    <header class="fixed top-0 left-0 w-full bg-opacity-50 bg-white shadow z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="w-full bg-opacity-50 bg-white shadow z-50">
+        <div class="container mx-auto">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
                     <Logo />
