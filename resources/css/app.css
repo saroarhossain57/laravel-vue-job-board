@@ -5,3 +5,7 @@
 .lara-job-board {
     min-height: 80vh;
 }
+.dashboard-sidebar {
+    width: 300px;
+    min-height: 85vh;
+}
