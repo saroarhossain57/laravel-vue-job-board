@@ -1,8 +1,8 @@
 <template>
     <Main>
         <div class="w-full max-w-md mx-auto mt-16 mb-16">
-            <h1 class="text-center text-3xl font-bold text-gray-700">Login</h1>
-            <p class="text-center text-gray-500 mb-8">Please enter your email and password</p>
+            <h1 class="text-center text-3xl font-bold text-gray-700">Register Your Account</h1>
+            <p class="text-center text-gray-500 mb-8">Please enter all the details and register your account</p>
             <form>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="email">

@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // components import
 import Dashboard from './Pages/Dashboard/Dashboard.vue';
 import Home from './Pages/Home.vue';
+import Login from './Pages/Login.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -11,10 +12,10 @@ const router = createRouter({
       path: '/',
       component: Home,
     },
-    // {
-    //   path: '/login',
-    //   component: Login,
-    // },
+    {
+      path: '/login',
+      component: Login,
+    },
     {
       path: '/dashboard',
       component: Dashboard,
