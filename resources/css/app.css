@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+    .sidebar-items {
+        @apply text-white hover:text-black hover:bg-white block p-3 px-5 font-semibold rounded;
+    }
+}
+
 .lara-job-board {
     min-height: 80vh;
 }
 .dashboard-sidebar {
     width: 300px;
     min-height: 85vh;
+}
+.router-link-active.sidebar-items {
+    background-color: white;
+    color: black;
 }
