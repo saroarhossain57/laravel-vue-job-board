@@ -27,4 +27,27 @@ class UserController extends Controller
             'token_type' => 'Bearer',
         ]);
     }
+
+    public function login(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'email|required|max:255',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = User::where('email', $validatedData['email'])->first();
+
+        if (!$user || !Hash::check($validatedData['password'], $user->password)) {
+            return response()->json([
+                'message' => 'Invalid credentials',
+            ], 401);
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);
+    }
 }
