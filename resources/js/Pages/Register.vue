@@ -40,15 +40,6 @@
                         placeholder="Enter password"
                     >
                 </div>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2" for="repeat_password">Repeat Password</label>
-                    <input
-                        class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="repeat_password"
-                        type="password"
-                        placeholder="Repeat password"
-                    >
-                </div>
                 <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 rounded-md" type="button">Login</button>
             </form>
         </div>
