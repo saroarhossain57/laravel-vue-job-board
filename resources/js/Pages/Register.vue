@@ -11,6 +11,7 @@
                         id="name"
                         type="text"
                         placeholder="Enter full name"
+                        v-model="name"
                     >
                 </div>
                 <div class="mb-4">
@@ -20,6 +21,7 @@
                         id="email"
                         type="email"
                         placeholder="Enter your email"
+                        v-model="email"
                     >
                 </div>
                 <div class="mb-4">
@@ -29,6 +31,7 @@
                         id="number"
                         type="text"
                         placeholder="Enter phone number"
+                        v-model="phone"
                     >
                 </div>
                 <div class="mb-6">
@@ -38,9 +41,10 @@
                         id="password"
                         type="password"
                         placeholder="Enter password"
+                        v-model="password"
                     >
                 </div>
-                <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 rounded-md" type="button">Login</button>
+                <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 rounded-md" type="button" @click.prevent="formSubmitHandler" :disabled="formSubmitting">Register</button> <span v-show="formSubmitting">Registering account...</span>
             </form>
         </div>
     </Main>
@@ -48,9 +52,49 @@
 
 <script>
 import Main from '../Layouts/Main.vue';
+import axios from 'axios';
+
 export default {
     components: {
         Main
+    },
+    data() {
+        return {
+            name: '',
+            email: '',
+            phone: '',
+            password: '',
+            formSubmitting: false
+        }
+    },
+    methods: {
+        formSubmitHandler() {
+            this.formSubmitting = true
+            axios.post('/api/register', {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                password: this.password
+            }).then(response => {
+                
+                if(response.data.success) {
+                    
+                }
+
+            }).catch(error => {
+
+                console.log(error)
+
+
+
+            }).finally( () => {
+                this.name = '';
+                this.email = '';
+                this.phone = '';
+                this.password = '';
+                this.formSubmitting = false
+            })
+        }
     }
 }
 </script>

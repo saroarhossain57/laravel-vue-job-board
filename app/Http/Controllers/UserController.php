@@ -51,7 +51,7 @@ class UserController extends Controller
                 'success'   => false,
                 'message'   => 'Validation errors',
                 'data'      => $validator->errors()
-            ]);
+            ], 400);
         }
  
         $validated = $validator->validated();
