@@ -16,9 +16,9 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"     => "required | max: 255",
-            "email"    => "required | email | exists:users , email | max:50",
-            "password" => "required | min: 6"
+            "name"     => "required|max:255",
+            "email"    => "required|unique:users,email|max:50",
+            "password" => "required|min:6"
         ];
     }
 
