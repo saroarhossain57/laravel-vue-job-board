@@ -12,8 +12,27 @@ class UserController extends Controller
     public function register(RegisterRequest $request)
     {
 
+        $userInput = $request->all();
+        $hashedPassword = Hash::make($userInput['password']);
+
+         // Create the user record
+        $user = User::create([
+            'name' => $userInput['name'],
+            'email' => $userInput['email'],
+            'password' => $hashedPassword,
+        ]);
+        
+        // Create token
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
-            'data' => 'hulululu'
+            'success'   => true,
+            'message'   => 'Registration comleted',
+            'data'      => [
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'user' => $user
+            ]
         ]);
 
         //dd($validatedData);
