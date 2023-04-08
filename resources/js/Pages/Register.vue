@@ -3,6 +3,7 @@
         <div class="w-full max-w-md mx-auto mt-16 mb-16">
             <h1 class="text-center text-3xl font-bold text-gray-700">Register Your Account</h1>
             <p class="text-center text-gray-500 mb-8">Please enter all the details and register your account</p>
+            <p class="text-center text-red-600 mb-2 text-xl" v-if="formError">Form not submitted. Fix the below errors.</p>
             <form>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="name">Name</label>
@@ -13,6 +14,7 @@
                         placeholder="Enter full name"
                         v-model="name"
                     >
+                    <div class="text-red-500" v-if="errors.name">{{ errors.name[0] }}</div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
@@ -23,6 +25,7 @@
                         placeholder="Enter your email"
                         v-model="email"
                     >
+                    <div class="text-red-500" v-if="errors.email">{{ errors.email[0] }}</div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="Number">Phone Number</label>
@@ -33,6 +36,7 @@
                         placeholder="Enter phone number"
                         v-model="phone"
                     >
+                    <div class="text-red-500" v-if="errors.phone">{{ errors.phone[0] }}</div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2" for="password">Password</label>
@@ -43,6 +47,7 @@
                         placeholder="Enter password"
                         v-model="password"
                     >
+                    <div class="text-red-500" v-if="errors.password">{{ errors.password[0] }}</div>
                 </div>
                 <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 rounded-md" type="button" @click.prevent="formSubmitHandler" :disabled="formSubmitting">Register</button> <span v-show="formSubmitting">Registering account...</span>
             </form>
@@ -64,7 +69,14 @@ export default {
             email: '',
             phone: '',
             password: '',
-            formSubmitting: false
+            formSubmitting: false,
+            formError: false,
+            errors: {
+                name: '',
+                email: '',
+                password: '',
+                phone: ''
+            }
         }
     },
     methods: {
@@ -78,14 +90,15 @@ export default {
             }).then(response => {
                 
                 if(response.data.success) {
-                    
+                    this.formError = false;
                 }
 
             }).catch(error => {
 
-                console.log(error)
-
-
+                if(error.response.data.success === false) {
+                    this.errors = error.response.data.data;
+                    this.formError = true
+                }
 
             }).finally( () => {
                 this.name = '';
