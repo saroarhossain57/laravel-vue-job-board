@@ -62,6 +62,7 @@ class UserController extends Controller
             return response()->json([
                 'success'   => false,
                 'message'   => 'Your credentials are incorrect',
+                'data'      => []
             ], 401);
         }
 
