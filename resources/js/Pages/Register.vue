@@ -4,6 +4,7 @@
             <h1 class="text-center text-3xl font-bold text-gray-700">Register Your Account</h1>
             <p class="text-center text-gray-500 mb-8">Please enter all the details and register your account</p>
             <p class="text-center text-red-600 mb-2 text-xl" v-if="formError">Form not submitted. Fix the below errors.</p>
+            <p class="text-center text-green-500 mb-2 text-xl" v-if="formSuccess">{{ formSuccess }}</p>
             <form>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="name">Name</label>
@@ -76,7 +77,8 @@ export default {
                 email: '',
                 password: '',
                 phone: ''
-            }
+            },
+            formSuccess: false
         }
     },
     methods: {
@@ -90,21 +92,33 @@ export default {
             }).then(response => {
                 
                 if(response.data.success) {
+                    this.name = '';
+                    this.email = '';
+                    this.phone = '';
+                    this.password = '';
+                    this.errors = {
+                        name: '',
+                        email: '',
+                        password: '',
+                        phone: ''
+                    }
                     this.formError = false;
+                    this.formSuccess = response.data.message;
+
+                    // route redirect to dashboard
+                    this.$router.push('/dashboard')
                 }
 
             }).catch(error => {
 
-                if(error.response.data.success === false) {
+   
+                if(error.response && error.response.data.success === false) {
                     this.errors = error.response.data.data;
                     this.formError = true
                 }
+            
 
             }).finally( () => {
-                this.name = '';
-                this.email = '';
-                this.phone = '';
-                this.password = '';
                 this.formSubmitting = false
             })
         }

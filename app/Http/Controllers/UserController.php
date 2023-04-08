@@ -29,7 +29,7 @@ class UserController extends Controller
 
         return response()->json([
             'success'   => true,
-            'message'   => 'Registration comleted',
+            'message'   => 'Registration completed successfully',
             'data'      => [
                 'access_token' => $token,
                 'token_type' => 'Bearer',
