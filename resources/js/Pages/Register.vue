@@ -105,6 +105,9 @@ export default {
                     this.formError = false;
                     this.formSuccess = response.data.message;
 
+                    // store token in local storage
+                    localStorage.setItem('token', response.data.data.access_token);
+
                     // route redirect to dashboard
                     this.$router.push('/dashboard')
                 }

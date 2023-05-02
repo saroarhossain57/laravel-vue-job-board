@@ -1,8 +1,11 @@
 const state = {
-    auth: {}
+    user: null
 }
   
 const mutations = {
+    ADD_AUTH_USER(state, user) {
+        state.user = user
+    }
     // SET_USERS(state, users) {
     //   state.users = users
     // },
@@ -18,6 +21,10 @@ const mutations = {
 }
   
 const actions = {
+    addAuthUser({ commit }, user) {
+
+        commit('ADD_AUTH_USER', user)
+    }   
     // getUsers({ commit }) {
     //   // Call API to get users data
     //   const users = [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }]

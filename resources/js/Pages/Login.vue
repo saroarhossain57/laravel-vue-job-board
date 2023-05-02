@@ -77,8 +77,18 @@ export default {
                     this.formError = false;
                     this.formSuccess = response.data.message;
 
-                    // route redirect to dashboard
-                    this.$router.push('/dashboard')
+                    // store token in local storage
+                    localStorage.setItem('token', response.data.data.access_token);
+
+                    // Call vuex action to store user data
+                    this.$store.dispatch('auth/addAuthUser', response.data.data.user);
+
+                    setTimeout(() => {
+                        // route redirect to dashboard
+                        this.$router.push('/dashboard')
+                    }, 1000)
+                    
+                    
                 }
 
             }).catch(error => {
