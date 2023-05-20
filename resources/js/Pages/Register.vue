@@ -29,6 +29,17 @@
                     <div class="text-red-500" v-if="errors.email">{{ errors.email[0] }}</div>
                 </div>
                 <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2">Account Type</label>
+                    <div class="flex items-center ">
+                        <input id="employee" type="radio" value="employee" v-model="role">
+                        <label for="employee" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Employee</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="employer" type="radio" value="employer" v-model="role">
+                        <label for="employer" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Employer</label>
+                    </div>
+                </div>
+                <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="Number">Phone Number</label>
                     <input
                         class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -68,6 +79,7 @@ export default {
         return {
             name: '',
             email: '',
+            role: 'employee',
             phone: '',
             password: '',
             formSubmitting: false,
@@ -75,6 +87,7 @@ export default {
             errors: {
                 name: '',
                 email: '',
+                role: '',
                 password: '',
                 phone: ''
             },
@@ -82,11 +95,14 @@ export default {
         }
     },
     methods: {
+        
         formSubmitHandler() {
+            console.log(this.role);
             this.formSubmitting = true
             axios.post('/api/register', {
                 name: this.name,
                 email: this.email,
+                role: this.role,
                 phone: this.phone,
                 password: this.password
             }).then(response => {
@@ -95,10 +111,12 @@ export default {
                     this.name = '';
                     this.email = '';
                     this.phone = '';
+                    this.role = 'employee';
                     this.password = '';
                     this.errors = {
                         name: '',
                         email: '',
+                        role: '',
                         password: '',
                         phone: ''
                     }
