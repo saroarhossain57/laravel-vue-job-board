@@ -1,10 +1,14 @@
 const state = {
-    user: null
+    user: null,
+    isLoggedIn: false
 }
   
 const mutations = {
     ADD_AUTH_USER(state, user) {
         state.user = user
+    },
+    SET_LOGGED_IN_STATUS(state, value){
+        state.isLoggedIn = value;
     }
     // SET_USERS(state, users) {
     //   state.users = users
@@ -22,9 +26,17 @@ const mutations = {
   
 const actions = {
     addAuthUser({ commit }, user) {
-
-        commit('ADD_AUTH_USER', user)
-    }   
+        commit('ADD_AUTH_USER', user);
+        commit('SET_LOGGED_IN_STATUS', true);
+    },
+    login({ commit }){
+        commit('SET_LOGGED_IN_STATUS', true);
+    },
+    logout({ commit }){
+        commit('SET_LOGGED_IN_STATUS', false);
+        commit('ADD_AUTH_USER', null);
+        localStorage.removeItem('token');
+    }    
     // getUsers({ commit }) {
     //   // Call API to get users data
     //   const users = [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }]
@@ -48,6 +60,9 @@ const getters = {
     // getUserById: (state) => (id) => {
     //   return state.users.find((user) => user.id === id)
     // }
+    isLoggedIn(state){
+        return state.isLoggedIn;
+    }
 }
   
 export default {

@@ -7,7 +7,7 @@
                 </div>
                 <div class="flex items-center">
                     <Mainmenu />
-                    <Profile />
+                    <Profile v-if="isLoggedIn" />
                 </div>
             </div>
         </div>
@@ -23,6 +23,11 @@
             'Logo': Logo,
             'Mainmenu': Mainmenu,
             'Profile': Profile
+        },
+        computed: {
+            isLoggedIn(){
+                return this.$store.getters['auth/isLoggedIn'];
+            }
         }
     }
 </script>

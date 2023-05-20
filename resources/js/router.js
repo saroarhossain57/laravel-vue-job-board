@@ -17,10 +17,16 @@ const router = createRouter({
     {
       path: '/login',
       component: Login,
+      meta: {
+        onlyPublic: true,
+      }
     },
     {
       path: '/register',
       component: Register,
+      meta: {
+        onlyPublic: true,
+      }
     },
     {
       path: '/dashboard',
@@ -33,9 +39,12 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.state.auth.user) {
+  if (to.meta.requiresAuth && !store.state.auth.isLoggedIn) {
     // User is not authenticated, redirect to login page
     next('/login')
+  } else if (to.meta.onlyPublic && store.state.auth.isLoggedIn) {
+    // Redirect the user to dashboard because user is logged in
+    next('/dashboard');
   } else {
     // User is authenticated or route doesn't require authentication, allow access
     next()
