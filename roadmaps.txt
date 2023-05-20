@@ -1,6 +1,11 @@
 
 ## Complete user roll and roll base login system and display menu items based on user roll.
 
+Employee
+Employer
+Admin
+
+
 ## Create job post based on user roll and create apply post system based on user roll. 
 
 ## Will have comment system below job post for both job seeker and job posted.
@@ -12,6 +17,12 @@
 ## Add a custom CLI command to automate seeding and migration process and some more process if I can.
 
 ## Deploy the project in a free resource and add CI/CD to update the project whenever I need.
+
+
+EXTRA FEATURES IF I CAN.
+--------------------------
+## Create api tokens for users to get their data.
+## Check tokens db table to see if the token table getting to much larger.
 
 
 
