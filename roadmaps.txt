@@ -1,0 +1,19 @@
+
+## Complete user roll and roll base login system and display menu items based on user roll.
+
+## Create job post based on user roll and create apply post system based on user roll. 
+
+## Will have comment system below job post for both job seeker and job posted.
+
+## Admin users, jobs, application manage system.
+
+## Complete profile and settings page for users.
+
+## Add a custom CLI command to automate seeding and migration process and some more process if I can.
+
+## Deploy the project in a free resource and add CI/CD to update the project whenever I need.
+
+
+
+// CONTINUOUS THINGS TO DO.
+## Create seeders to put some demo data whereever I need.
