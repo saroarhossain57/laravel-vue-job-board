@@ -20,6 +20,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $userInput['name'],
             'email' => $userInput['email'],
+            'role' => $userInput['role'],
             'phone' => $userInput['phone'],
             'password' => $hashedPassword,
         ]);

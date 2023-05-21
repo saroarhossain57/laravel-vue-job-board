@@ -18,6 +18,7 @@ class RegisterRequest extends FormRequest
         return [
             "name"     => "required|max:255",
             "email"    => "required|unique:users,email|max:50",
+            "role"     => "required|in:employee,employer|max:255",
             "phone"    => "required|unique:users,phone|max:50",
             "password" => "required|min:6"
         ];

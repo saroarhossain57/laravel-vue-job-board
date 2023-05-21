@@ -31,13 +31,14 @@
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2">Account Type</label>
                     <div class="flex items-center ">
-                        <input id="employee" type="radio" value="employee" v-model="role">
+                        <input checked id="employee" type="radio" value="employee" v-model="role">
                         <label for="employee" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Employee</label>
                     </div>
                     <div class="flex items-center">
                         <input id="employer" type="radio" value="employer" v-model="role">
                         <label for="employer" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Employer</label>
                     </div>
+                    <div class="text-red-500" v-if="errors.role">{{ errors.role[0] }}</div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="Number">Phone Number</label>

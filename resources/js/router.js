@@ -3,6 +3,9 @@ import store from './store';
 
 // components import
 import Dashboard from './Pages/Dashboard/Dashboard.vue';
+import MyApplications from './Pages/Dashboard/MyApplications.vue';
+import AllJobs from './Pages/Dashboard/AllJobs.vue';
+import PostJob from './Pages/Dashboard/PostJob.vue';
 import Home from './Pages/Home.vue';
 import Login from './Pages/Login.vue';
 import Register from './Pages/Register.vue';
@@ -31,6 +34,27 @@ const router = createRouter({
     {
       path: '/dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/my-applications',
+      component: MyApplications,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/all-jobs',
+      component: AllJobs,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/post-job',
+      component: PostJob,
       meta: {
         requiresAuth: true
       }

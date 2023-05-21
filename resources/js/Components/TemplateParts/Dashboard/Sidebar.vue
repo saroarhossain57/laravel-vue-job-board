@@ -4,9 +4,9 @@
         <p class="text-white mt-2">Hi, Saroar Hossain</p>
         <ul class="mt-6">
             <li><router-link to="/dashboard" class="sidebar-items">Dashboard</router-link></li>
-            <li><router-link to="/applied-jobs" class="sidebar-items">Applied Jobs</router-link></li>
-            <li><router-link to="/posted-jobs" class="sidebar-items">Posted Jobs</router-link></li>
-            <li><router-link to="/post-new-job" class="sidebar-items">Post New Job</router-link></li>
+            <li><router-link to="/my-applications" class="sidebar-items">My Applications</router-link></li>
+            <li><router-link to="/all-jobs" class="sidebar-items">All Jobs</router-link></li>
+            <li><router-link to="/post-job" class="sidebar-items">Post Job</router-link></li>
             <hr class="my-2">
             <li><router-link to="/app-jobs" class="sidebar-items">All Jobs</router-link></li>
             <li><router-link to="/applications" class="sidebar-items">Applications</router-link></li>
