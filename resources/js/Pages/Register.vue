@@ -98,7 +98,6 @@ export default {
     methods: {
         
         formSubmitHandler() {
-            console.log(this.role);
             this.formSubmitting = true
             axios.post('/api/register', {
                 name: this.name,
