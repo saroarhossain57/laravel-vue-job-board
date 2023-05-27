@@ -89,8 +89,33 @@
     },
     methods: {
       submit() {
-        alert('Form Submitted');
+        this.formSubmitting = true;
+        axios.post('/api/register', {
+
+          name: this.name,
+          email: this.email,
+          role: this.role,
+          phone: this.phone,
+          password: this.password
+          
+        }).then(response => {
+
+          this.formSubmitting = false;
+
+        }).catch(error => {
+
+          if(error.response && error.response.data.success === false) {
+            this.errors = error.response.data.data;
+            this.formError = true
+          }
+
+        }).finally(() => {
+
+          this.formSubmitting = false;
+
+        })
       }
     }
   }
   </script>
+

@@ -21,6 +21,10 @@ if(token){
     store.dispatch('auth/addAuthUser', response.data);
   }).catch(err => {
     console.error('Error fetching user data:', err);
+
+    app.use(router)
+    app.use(store)
+    app.mount('#app')
   })
 } else {
 

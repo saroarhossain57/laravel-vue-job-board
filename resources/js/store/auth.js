@@ -1,6 +1,6 @@
 const state = {
     user: null,
-    isLoggedIn: false
+    isLoggedIn: false,
 }
   
 const mutations = {
@@ -62,6 +62,9 @@ const getters = {
     // }
     isLoggedIn(state){
         return state.isLoggedIn;
+    },
+    userRole(state){
+        return state.user ? state.user.role : null;
     }
 }
   
