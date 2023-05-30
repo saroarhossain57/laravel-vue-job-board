@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::middleware(['auth:sanctum', 'role:employee'])->group(function () {
 // Employer Routes
 Route::middleware(['auth:sanctum', 'role:employer'])->group(function () {
 
+    Route::get('/jobs', [JobController::class, 'index']);
+    Route::post('/jobs', [JobController::class, 'store']);
     // Route::get('/users', [UserController::class, 'index']);
     // Route::post('/users', [UserController::class, 'store']);
 });

@@ -7,6 +7,15 @@
     .sidebar-items {
         @apply text-white hover:text-black hover:bg-white block p-3 px-5 font-semibold rounded;
     }
+    .small_btn {
+        @apply bg-blue-500 hover:bg-blue-700 text-white text-sm py-1 px-4 rounded;
+    }
+    .green_btn {
+        @apply bg-green-500 hover:bg-green-700;
+    }
+    .red_btn {
+        @apply bg-red-500 hover:bg-red-700;
+    }    
 }
 
 .lara-job-board {
@@ -22,4 +31,15 @@
 }
 .h-text-area {
     height: 200px;
+}
+.jb-data-table td, 
+.jb-data-table th {
+    white-space: nowrap;
+    padding: 10px;
+}
+.jb-data-table td {
+    background-color: rgba(122, 122, 122, 0.068);
+}
+.jb-data-table tbody tr {
+    border-top: 2px solid #707070;
 }
