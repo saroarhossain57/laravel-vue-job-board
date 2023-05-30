@@ -14,6 +14,8 @@ Admin
 
 ## Complete profile and settings page for users.
 
+## whenever I visit a page that fetching data from API it showing loading. The data should loads whenever it needs. showing the loading each time is not looking great.
+
 ## Add a custom CLI command to automate seeding and migration process and some more process if I can.
 
 ## Deploy the project in a free resource and add CI/CD to update the project whenever I need.
