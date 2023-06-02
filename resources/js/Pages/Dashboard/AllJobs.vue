@@ -43,14 +43,6 @@
     components: {
       Dashboard,
     },
-    data() {
-
-      //console.log(this.$store.state.jobs.data);
-
-      return {
-        //jobs: this.$store.state.jobs.data,
-      }
-    },
     mounted() {
       this.$store.dispatch('jobs/getAllJobs');
     },

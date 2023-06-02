@@ -1,32 +1,45 @@
 import axios from 'axios';
+import { comment } from 'postcss';
 
 const state = {
     data: [],
     loading: false,
+    isDataCached: false,
 }
   
 const mutations = {
     GET_ALL_JOBS(state, jobs) {
-        state.data = jobs
+        state.data = jobs.reverse();
     },
     SET_LOADING(state, loading) {
         state.loading = loading;
+    },
+    SET_CACHED(state, cached){
+        state.isDataCached = cached;
+    },
+    ADD_NEW_JOB(state, job){
+        state.data.unshift(job);
     }
 }
   
 const actions = {
-    getAllJobs({ commit }, jobs) {
+    getAllJobs({ commit, state }, jobs) {
+        if(!state.isDataCached){
+            commit('SET_LOADING', true);
+            axios.get('http://127.0.0.1:8000/api/jobs').then((response) => {
+                commit('GET_ALL_JOBS', response.data.data);
+                commit('SET_CACHED', true);
+            }).catch((error) => {
+                console.log(error);
+            }).finally(() => {
+                commit('SET_LOADING', false);
+            })
+        }
+    },
 
-        commit('SET_LOADING', true);
-
-        axios.get('http://127.0.0.1:8000/api/jobs').then((response) => {
-            commit('GET_ALL_JOBS', response.data.data);
-        }).catch((error) => {
-            console.log(error);
-        }).finally(() => {
-            commit('SET_LOADING', false);
-        })
-    }  
+    addNewJob({commit}, job){
+        commit('ADD_NEW_JOB', job);
+    }
 }
   
 const getters = {}

@@ -134,6 +134,7 @@
             skills: ''
           }
 
+          this.$store.dispatch('jobs/addNewJob', response.data.data);
         }).catch(error => {
 
           if(error.response && error.response.data.success === false) {

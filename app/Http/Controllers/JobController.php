@@ -11,7 +11,6 @@ class JobController extends Controller
 
     public function index()
     {
-        sleep(3);
         return response()->json([
             'success'   => true,
             'message'   => 'All jobs',
