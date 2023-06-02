@@ -23,9 +23,9 @@
                 <td>{{ job.job_type }}</td>
                 <td>{{ job.location }}</td>
                 <td>
-                  <button class="small_btn">View</button>
-                  <button class="small_btn ml-1 green_btn">Edit</button>
-                  <button class="small_btn ml-1 red_btn">Delete</button>
+                  <router-link to="" class="small_btn">View</router-link>
+                  <router-link :to="`/edit-job/${job.id}`" class="small_btn ml-1 green_btn">Edit</router-link>
+                  <a href="#" class="small_btn ml-1 red_btn">Delete</a>
                 </td>
               </tr>
             </tbody>

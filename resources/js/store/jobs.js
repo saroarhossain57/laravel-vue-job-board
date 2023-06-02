@@ -23,7 +23,7 @@ const mutations = {
 }
   
 const actions = {
-    getAllJobs({ commit, state }, jobs) {
+    getAllJobs({ commit, state }) {
         if(!state.isDataCached){
             commit('SET_LOADING', true);
             axios.get('http://127.0.0.1:8000/api/jobs').then((response) => {
@@ -39,6 +39,13 @@ const actions = {
 
     addNewJob({commit}, job){
         commit('ADD_NEW_JOB', job);
+    },
+
+    getJobById({commit}, id){
+        
+    },
+    editJob({ commit }){
+1
     }
 }
   

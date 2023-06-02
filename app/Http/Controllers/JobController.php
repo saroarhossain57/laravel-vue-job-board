@@ -30,5 +30,14 @@ class JobController extends Controller
         ]);
     }
 
+    public function get_job_by_id($id)
+    {
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Successfully retrieved job',
+            'data'      => Job::find($id),
+        ]);
+    }
+
 
 }

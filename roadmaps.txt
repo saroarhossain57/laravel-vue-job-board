@@ -20,6 +20,8 @@ Admin
 
 ## Deploy the project in a free resource and add CI/CD to update the project whenever I need.
 
+## Check front end role based authorization checking so a role can only visit his own routes.
+
 
 EXTRA FEATURES IF I CAN.
 --------------------------

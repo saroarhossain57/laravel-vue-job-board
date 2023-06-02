@@ -6,6 +6,7 @@ import Dashboard from './Pages/Dashboard/Dashboard.vue';
 import MyApplications from './Pages/Dashboard/MyApplications.vue';
 import AllJobs from './Pages/Dashboard/AllJobs.vue';
 import PostJob from './Pages/Dashboard/PostJob.vue';
+import EditJob from './Pages/Dashboard/EditJob.vue';
 import Home from './Pages/Home.vue';
 import Login from './Pages/Login.vue';
 import Register from './Pages/Register.vue';
@@ -55,6 +56,13 @@ const router = createRouter({
     {
       path: '/post-job',
       component: PostJob,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/edit-job/:id',
+      component: EditJob,
       meta: {
         requiresAuth: true
       }
