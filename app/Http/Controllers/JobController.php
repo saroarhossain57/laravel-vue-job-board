@@ -39,5 +39,29 @@ class JobController extends Controller
         ]);
     }
 
+    // update job
+    public function update_job_by_id($id, CreateJobRequest $request)
+    {
+        $job = Job::find($id);
+        $job->update($request->all());
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Successfully updated job',
+            'data'      => $job
+        ]);
+    }
+
+
+    public function delete($id, Request $request)
+    {
+        // Delete the job
+        $job = Job::find($id);
+        $job->delete();
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Successfully deleted job',
+            'data'      => $job,
+        ]);
+    }
 
 }

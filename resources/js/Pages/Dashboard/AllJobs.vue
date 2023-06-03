@@ -25,7 +25,7 @@
                 <td>
                   <router-link to="" class="small_btn">View</router-link>
                   <router-link :to="`/edit-job/${job.id}`" class="small_btn ml-1 green_btn">Edit</router-link>
-                  <a href="#" class="small_btn ml-1 red_btn">Delete</a>
+                  <a href="#" class="small_btn ml-1 red_btn" @click="deleteJob(job.id)">Delete</a>
                 </td>
               </tr>
             </tbody>
@@ -48,7 +48,13 @@
     },
     computed: {
       ...mapState('jobs', ['data', 'loading']),
-    }
+    },
+    methods: {
+      deleteJob(id) {
+        confirm('Are you sure you want to delete this job?');
+        this.$store.dispatch('jobs/deleteJob', id);
+      },
+    },
 
   }
   </script>

@@ -27,9 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
-
     Route::get('/jobs/{id}', [JobController::class, 'get_job_by_id']);
-    // Route::post('/users', [UserController::class, 'store']);
+    Route::put('/jobs/{id}', [JobController::class, 'update_job_by_id']);
 });
 
 // Admin Routes
@@ -46,8 +45,7 @@ Route::middleware(['auth:sanctum', 'role:employer'])->group(function () {
 
     Route::get('/jobs', [JobController::class, 'index']);
     Route::post('/jobs', [JobController::class, 'store']);
-    // Route::get('/users', [UserController::class, 'index']);
-    // Route::post('/users', [UserController::class, 'store']);
+    Route::delete('/jobs/{id}', [JobController::class, 'delete']);
 });
 
 
