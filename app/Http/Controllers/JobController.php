@@ -54,6 +54,9 @@ class JobController extends Controller
 
     public function delete($id, Request $request)
     {
+
+        $user = $request->user();
+
         // Delete the job
         $job = Job::find($id);
         $job->delete();

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('salary_range');
             $table->string('job_type');
             $table->string('skills');
+            $table->unsignedBigInteger('user_id');  
             $table->timestamps();
         });
     }
