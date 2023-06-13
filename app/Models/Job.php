@@ -22,6 +22,7 @@ class Job extends Model
         'location',
         'salary_range',
         'job_type',
-        'skills'
+        'skills',
+        'user_id',
     ];
 }

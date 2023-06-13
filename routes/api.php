@@ -17,6 +17,7 @@ use App\Http\Controllers\JobController;
 */
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/all-jobs', [JobController::class, 'all_jobs']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -24,8 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Normal Auth Routes
-
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/jobs/{id}', [JobController::class, 'get_job_by_id']);
     Route::put('/jobs/{id}', [JobController::class, 'update_job_by_id']);
