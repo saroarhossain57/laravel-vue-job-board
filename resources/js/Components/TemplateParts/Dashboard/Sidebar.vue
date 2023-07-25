@@ -23,7 +23,7 @@
             <hr class="my-2">
             </template>
 
-            <li><router-link to="/account" class="sidebar-items">Account</router-link></li>
+            <li><router-link to="/my-account" class="sidebar-items">My Account</router-link></li>
             <li><router-link to="/logout" class="sidebar-items">Logout</router-link></li>
         </ul>
     </aside>

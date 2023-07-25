@@ -7,6 +7,7 @@ import MyApplications from './Pages/Dashboard/MyApplications.vue';
 import AllJobs from './Pages/Dashboard/AllJobs.vue';
 import PostJob from './Pages/Dashboard/PostJob.vue';
 import EditJob from './Pages/Dashboard/EditJob.vue';
+import MyAccount from './Pages/Dashboard/MyAccount.vue';
 import Home from './Pages/Home.vue';
 import Login from './Pages/Login.vue';
 import Register from './Pages/Register.vue';
@@ -30,6 +31,13 @@ const router = createRouter({
       component: Register,
       meta: {
         onlyPublic: true,
+      }
+    },
+    {
+      path: '/my-account',
+      component: MyAccount,
+      meta: {
+        requiresAuth: true
       }
     },
     {
