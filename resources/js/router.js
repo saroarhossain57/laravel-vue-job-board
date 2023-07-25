@@ -41,6 +41,13 @@ const router = createRouter({
       }
     },
     {
+      path: '/my-account/edit',
+      component: MyAccount,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/dashboard',
       component: Dashboard,
       meta: {

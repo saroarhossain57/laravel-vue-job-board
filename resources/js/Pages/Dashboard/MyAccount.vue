@@ -2,6 +2,16 @@
     <Dashboard>
       <h1 class="text-3xl">Your Account Details</h1>
       <div class="h-1 bg-slate-800 mt-3 mb-7"></div>
+
+      <p v-if="!user">Loading...</p>
+      <template v-else>
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Account Type:</strong> {{ user.role.toUpperCase() }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+      </template>
+
+      <router-link to="/my-account/edit" class="jb-btn rounded-md py-3 px-10 text-white bg-blue-500 mt-5 inline-block">Edit Your Profile</router-link>
 <!-- 
       <p v-if="loading">Loading...</p>
       <template v-else>
@@ -80,6 +90,10 @@
       return {
         
       }
+    },
+
+    computed: {
+      ...mapState('auth', ['user'])
     }
   }
 
